@@ -1,26 +1,18 @@
 function buildMetadata(sample) {
-
   // @TODO: Complete the following function that builds the metadata panel
-
   // Use `d3.json` to fetch the metadata for a sample
+  d3.json(`/metadata/${sample}`).then(function(data) {
+    console.log(data);
     // Use d3 to select the panel with id of `#sample-metadata`
-
     var outputtable= d3.select("#sample-metadata");
     // Use `.html("") to clear any existing metadata
-    // outputtable.html =("");
-    var datavalues = d3.json(`/metadata/${sample}`).then(function(dataT) {
-      console.log(dataT);
-    
+    outputtable.html("");
     // Use `Object.entries` to add each key and value pair to the panel
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
-      datavalues.forEach((data) => {
-        var row = outputtable.append("tr");
-        var cell = row.append("td");
-        Object.entries(data).forEach(([key, value]) => {
-          cell.text(value);
+    Object.entries(data).forEach(([key, value]) => {
+        outputtable.append("h6").text(`${key}:${value}`);
         });
-      });
     });
 }
 
