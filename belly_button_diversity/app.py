@@ -18,7 +18,7 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', 'postgres://fuvivcyjjaaygm:9091215c810f2a61972054fde11b794d6c43d3f0bfd19c31b349cda0b77628e0@ec2-54-221-212-126.compute-1.amazonaws.com:5432/d38rdv55n5lb2j')
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', '')
 # "sqlite:///db/bellybutton.sqlite"
 
 
